@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- name:给package起个名称默认defualt
+		 namespace：命名空间的意思：/ 代表 localhost:8080/项目名 
+		 extends：继承struts-default.xml	
+	 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 控制器 
+			name:属性相当于给控制器起的名称 ：相当于springmvc中的@RequestMapping("index")
+			class:通过反射技术得到Action的全路径
+			method:控制器中的方法名 如果是实现Action接口则method属性可以不写，默认就是执行的execute方法。但是，在实现开发过程中建议写上!
+		 -->
+		<!-- 第一种实现方式 -->
+		<action name="index" class="com.bjsxt.action.IndexAction" method="execute">
+			<!-- Name="success" ： 也可以省略表示成功！ /index.jsp：表示成功之后跳转到哪个页面。 -->
+			<result name="success">/index.jsp</result>
+		</action>
+		<!-- 第二种实现方式 -->
+		<action name="login" class="com.bjsxt.action.LoginAction" method="login">
+			<result>/login.jsp</result>
+		</action>
+		<!-- 第三种实现方式 -->
+		<action name="demo" class="com.bjsxt.action.DemoAction" method="demo">
+			<result>/demo.jsp</result>
+		</action>
+	</package>
+</struts>
